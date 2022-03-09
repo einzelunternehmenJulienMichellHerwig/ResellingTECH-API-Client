@@ -1,0 +1,33 @@
+{
+    "name": "bastianleicht/reseller-services-php",
+    "description": "A full-featured implementation of the ResellingTech API",
+    "license": "BSD-2-Clause",
+    "type": "library",
+    "keywords": ["Reselling", "Hosting", "Reseller-Services", "PHP", "API", "Domain"],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Bastian Leicht",
+            "email": "mail@bastianleicht.de",
+            "homepage": "https://bastianleicht.de"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/bastianleicht/reseller-services-php/issues",
+        "source": "https://github.com/bastianleicht/reseller-services-php"
+    },
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^6.3",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ResellingTech\\": "src/"
+        }
+    }
+}
