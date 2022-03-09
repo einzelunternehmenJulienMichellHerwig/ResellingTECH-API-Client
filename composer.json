@@ -10,12 +10,13 @@
         {
             "name": "Julien Michell Herwig",
             "email": "j.herwig@integromedia.io",
-            "homepage": "https://integromedia.io"
+            "homepage": "https://IntegroMedia.io"
         }
     ],
     "support": {
         "issues": "https://github.com/integromediaug/resellingtech-api-client/issues",
-        "source": "https://github.com/integromediaug/resellingtech-api-client"
+        "source": "https://github.com/integromediaug/resellingtech-api-client",
+        "docs": "https://github.com/integromediaug/resellingtech-api-client/wiki"
     },
     "require": {
         "php": ">=7.2",
