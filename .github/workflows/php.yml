@@ -14,6 +14,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: send new Build message
+      uses: appleboy/discord-action@master
+      with:
+        webhook_id: ${{ secrets.WEBHOOK_ID }}
+        webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+        message: Neuer Github Push
+
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
@@ -32,7 +39,16 @@ jobs:
     - name: "Create Package"
       run: |
         echo "Creating ZIP File"
-        zip -r ResellingTechClient.zip src/ composer.json composer.lock phpunit.xml README.md
+        zip -r ResellingTechClient.zip src/ composer.json README.md
+
+    - name: send new Version
+      uses: appleboy/discord-action@master
+      with:
+        webhook_id: ${{ secrets.WEBHOOK_ID }}
+        webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+        file: "./ResellingTechClient.zip"
+        message: "Newest CLIENT Build"
+
 
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
