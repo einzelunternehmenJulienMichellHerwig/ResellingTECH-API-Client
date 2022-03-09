@@ -1,7 +1,7 @@
 Reselling.tech PHP API Client
 =======================
 
-[![PHP Composer](https://github.com/integromediaug/ResellingTECH-API-Client/actions/workflows/php.yml/badge.svg)](https://github.com/ServerBlazeDE/ResellingTECH-API-Client/actions/workflows/php.yml)
+[![PHP Composer](https://github.com/ServerBlazeDE/ResellingTECH-API-Client/actions/workflows/php.yml/badge.svg?branch=main)](https://github.com/ServerBlazeDE/ResellingTECH-API-Client/actions/workflows/php.yml)
 
 This **PHP 7.2+** library allows you to communicate with the Reselling.tech API.
 
@@ -11,14 +11,14 @@ Recommended installation is using **Composer**!
 
 In the root of your project execute the following:
 ```sh
-$ composer require integromediaug/resellingtech-api-client
+$ composer require serverblazede/resellingtech-api-client
 ```
 
 Or add this to your `composer.json` file:
 ```json
 {
     "require": {
-        "integromediaug/resellingtech-api-client": "^1.0"
+        "serverblazede/resellingtech-api-client": "^1.0"
     }
 }
 ```
