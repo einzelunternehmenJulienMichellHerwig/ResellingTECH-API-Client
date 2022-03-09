@@ -39,12 +39,11 @@ jobs:
       uses: SebastiaanZ/github-status-embed-for-discord@main
       with:
         # Discord webhook
-        webhook_id: ${{ secrets.WEBHOOK_ID }} # Has to be provided as a string
+        webhook_id: '951230248178024488' # Has to be provided as a string
         webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-        pr_author_login: ${{ github.event.pull_request.user.login }}
-        pr_number: ${{ github.event.pull_request.number }}
-        pr_title: ${{ github.event.pull_request.title }}
-        pr_source: ${{ github.event.pull_request.head.label }}
+        repository: ${{ github.repository }}
+        status: 'success'
+        actor: ${{ github.actor }}
 
     - name: send new Versions File
       uses: appleboy/discord-action@master
