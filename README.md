@@ -13,7 +13,7 @@ In the root of your project execute the following:
 ```sh
 $ composer require serverblazede/resellingtech-api-client
 ```
-
+ 
 Or add this to your `composer.json` file:
 ```json
 {
