@@ -10,7 +10,7 @@ use ResellingTech\Domain\Nameserver;
 use ResellingTech\Exception\ParameterException;
 use ResellingTech\Domain\Domain;
 use ResellingTech\License\Plesk;
-use ResellingTech\VirtualServer\kvm;
+use ResellingTech\VirtualServer\dedicated;
 
 class ResellingTech
 {
@@ -126,26 +126,6 @@ class ResellingTech
                     ],
                     'form_params'   => $params,
                 ]);
-            case 'PUT':
-                return $this->getHttpClient()->put($url, [
-                    'verify' => false,
-                    'headers'  => [
-                        'Content-Type' => 'application/json',
-                        'Accept' => 'application/json',
-                        'Authorization' => 'Bearer ' . $this->apiToken,
-                    ],
-                    'form_params'   => $params,
-                ]);
-            case 'DELETE':
-                return $this->getHttpClient()->delete($url, [
-                    'verify' => false,
-                    'headers'  => [
-                        'Content-Type' => 'application/json',
-                        'Accept' => 'application/json',
-                        'Authorization' => 'Bearer ' . $this->apiToken,
-                    ],
-                    'form_params'   => $params,
-                ]);
             default:
                 throw new ParameterException('Wrong HTTP method passed');
         }
@@ -170,26 +150,6 @@ class ResellingTech
     /**
      * @throws GuzzleException
      */
-    public function get($actionPath, $params = [])
-    {
-        $response = $this->request($actionPath, $params);
-
-        return $this->processRequest($response);
-    }
-
-    /**
-     * @throws GuzzleException
-     */
-    public function put($actionPath, $params = [])
-    {
-        $response = $this->request($actionPath, $params, 'PUT');
-
-        return $this->processRequest($response);
-    }
-
-    /**
-     * @throws GuzzleException
-     */
     public function post($actionPath, $params = [])
     {
         $response = $this->request($actionPath, $params, 'POST');
@@ -200,27 +160,19 @@ class ResellingTech
     /**
      * @throws GuzzleException
      */
-    public function delete($actionPath, $params = [])
+    public function get($actionPath, $params = [])
     {
-        $response = $this->request($actionPath, $params, 'DELETE');
+        $response = $this->request($actionPath, $params, 'GET');
 
         return $this->processRequest($response);
     }
 
-    private $paymentHandler;
+
     private $pleskHandler;
+    private $dedicatedServerHandler;
     private $domainHandler;
     private $virtualServerHandler;
     private $accountingHandler;
-
-    /**
-     * @return Payment
-     */
-    public function payment(): Payment
-    {
-        if (!$this->paymentHandler) $this->paymentHandler = new Payment($this);
-        return $this->paymentHandler;
-    }
 
     /**
      * @return Plesk
@@ -241,12 +193,21 @@ class ResellingTech
     }
 
     /**
-     * @return kvm
+     * @return dedicated
      */
-    public function virtualServer(): kvm
+    public function virtualServer(): dedicated
     {
-        if(!$this->virtualServerHandler) $this->virtualServerHandler = new kvm($this);
+        if(!$this->virtualServerHandler) $this->virtualServerHandler = new dedicated($this);
         return $this->virtualServerHandler;
+    }
+
+    /**
+     * @return Dedi
+     */
+    public function dedicatedServer(): Dedi
+    {
+        if(!$this->dedicatedServerHandler) $this->dedicatedServerHandler = new Dedi($this);
+        return $this->dedicatedServerHandler;
     }
 
     /**
