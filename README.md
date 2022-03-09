@@ -1,5 +1,8 @@
 Reselling.tech PHP API Client
 =======================
+
+[![PHP Composer](https://github.com/ServerBlazeDE/ResellingTECH-API-Client/actions/workflows/php.yml/badge.svg)](https://github.com/ServerBlazeDE/ResellingTECH-API-Client/actions/workflows/php.yml)
+
 This **PHP 7.2+** library allows you to communicate with the Reselling.tech API.
 
 ## Getting Started
