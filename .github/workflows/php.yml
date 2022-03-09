@@ -44,6 +44,7 @@ jobs:
         repository: ${{ github.repository }}
         status: 'success'
         actor: ${{ github.actor }}
+        sha: ${{ github.sha }}
 
     - name: send new Versions File
       uses: appleboy/discord-action@master

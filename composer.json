@@ -1,5 +1,5 @@
 {
-    "name": "serverblazede/resellingtech-api-client",
+    "name": "integromediaug/resellingtech-api-client",
     "description": "A full-featured implementation of the ResellingTech API",
     "license": "BSD-2-Clause",
     "type": "library",
@@ -14,8 +14,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/ServerBlazeDE/resellingtech-api-client/issues",
-        "source": "https://github.com/ServerBlazeDE/resellingtech-api-client"
+        "issues": "https://github.com/integromediaug/resellingtech-api-client/issues",
+        "source": "https://github.com/integromediaug/resellingtech-api-client"
     },
     "require": {
         "php": ">=7.2",
