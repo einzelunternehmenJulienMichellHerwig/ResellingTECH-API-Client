@@ -1,21 +1,21 @@
 {
-    "name": "bastianleicht/reseller-services-php",
+    "name": "serverblazede/resellingtech-api-client",
     "description": "A full-featured implementation of the ResellingTech API",
     "license": "BSD-2-Clause",
     "type": "library",
-    "keywords": ["Reselling", "Hosting", "Reseller-Services", "PHP", "API", "Domain"],
+    "keywords": ["Reselling", "Hosting", "Reselling.tech", "PHP", "API", "Domain", "rootserve", "dedicated"],
     "minimum-stability": "stable",
     "prefer-stable": true,
     "authors": [
         {
-            "name": "Bastian Leicht",
-            "email": "mail@bastianleicht.de",
-            "homepage": "https://bastianleicht.de"
+            "name": "Julien Michell Herwig",
+            "email": "j.herwig@integromedia.io",
+            "homepage": "https://integromedia.io"
         }
     ],
     "support": {
-        "issues": "https://github.com/bastianleicht/reseller-services-php/issues",
-        "source": "https://github.com/bastianleicht/reseller-services-php"
+        "issues": "https://github.com/ServerBlazeDE/resellingtech-api-client/issues",
+        "source": "https://github.com/ServerBlazeDE/resellingtech-api-client"
     },
     "require": {
         "php": ">=7.2",
