@@ -8,14 +8,14 @@ Recommended installation is using **Composer**!
 
 In the root of your project execute the following:
 ```sh
-$ composer require serverblaze/reselling-tech-php
+$ composer require serverblazede/resellingtech-api-client
 ```
 
 Or add this to your `composer.json` file:
 ```json
 {
     "require": {
-        "serverblaze/reselling-tech-php": "^1.0"
+        "serverblazede/resellingtech-api-client": "^1.0"
     }
 }
 ```
