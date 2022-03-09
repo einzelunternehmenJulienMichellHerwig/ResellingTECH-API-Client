@@ -32,7 +32,7 @@ jobs:
     - name: "Create Package"
       run: |
         echo "Creating ZIP File"
-        zip -r --junk-paths ResellingTechClient * 
+        zip  --junk-paths ResellingTechClient -r * 
 
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
