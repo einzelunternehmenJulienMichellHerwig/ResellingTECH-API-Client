@@ -9,7 +9,7 @@ use ResellingTech\Accounting\Account;
 use ResellingTech\Domain\Domain;
 use ResellingTech\Exception\ParameterException;
 use ResellingTech\License\Plesk;
-use ResellingTech\VirtualServer\dedicated;
+use ResellingTech\DedicatedServer\Dedicated;
 use ResellingTech\VirtualServer\kvm;
 
 class ResellingTech
@@ -69,7 +69,7 @@ class ResellingTech
     /**
      * @return string
      */
-    public function getToken()
+    public function getToken(): string
     {
         return $this->apiToken;
     }
@@ -77,7 +77,7 @@ class ResellingTech
     /**
      * @return bool
      */
-    public function isSandbox()
+    public function isSandbox(): bool
     {
         return $this->sandbox;
     }

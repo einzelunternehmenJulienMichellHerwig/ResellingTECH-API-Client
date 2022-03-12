@@ -6,7 +6,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use ResellingTech\Exception\AssertNotImplemented;
 use ResellingTech\ResellingTech;
 
-class dedicated
+class Dedicated
 {
     private $ResellingTech;
 
