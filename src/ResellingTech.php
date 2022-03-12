@@ -6,11 +6,11 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 use ResellingTech\Accounting\Account;
-use ResellingTech\Domain\Nameserver;
-use ResellingTech\Exception\ParameterException;
 use ResellingTech\Domain\Domain;
+use ResellingTech\Exception\ParameterException;
 use ResellingTech\License\Plesk;
 use ResellingTech\VirtualServer\dedicated;
+use ResellingTech\VirtualServer\kvm;
 
 class ResellingTech
 {
@@ -193,21 +193,21 @@ class ResellingTech
     }
 
     /**
-     * @return dedicated
+     * @return Dedicated
      */
-    public function virtualServer(): dedicated
+    public function dedicatedServer(): Dedicated
     {
-        if(!$this->virtualServerHandler) $this->virtualServerHandler = new dedicated($this);
-        return $this->virtualServerHandler;
+        if(!$this->dedicatedServerHandler) $this->dedicatedServerHandler = new Dedicated($this);
+        return $this->dedicatedServerHandler;
     }
 
     /**
-     * @return Dedi
+     * @return KVM
      */
-    public function dedicatedServer(): Dedi
+    public function virtualServer(): KVM
     {
-        if(!$this->dedicatedServerHandler) $this->dedicatedServerHandler = new Dedi($this);
-        return $this->dedicatedServerHandler;
+        if(!$this->virtualServerHandler) $this->virtualServerHandler = new KVM($this);
+        return $this->virtualServerHandler;
     }
 
     /**

@@ -4,6 +4,7 @@ namespace ResellingTech\Domain;
 
 use GuzzleHttp\Exception\GuzzleException;
 use ResellingTech\Exception\AssertNotImplemented;
+use ResellingTech\Knowlagebase\Knowlagebase;
 use ResellingTech\ResellingTech;
 
 class Domain
@@ -12,6 +13,7 @@ class Domain
     private $nameserverHandler;
     private $domainHandle;
     private $domainDNS;
+    private $knowlagebase;
 
     public function __construct(ResellingTech $ResellingTech)
     {
@@ -43,6 +45,15 @@ class Domain
     {
         if(!$this->domainDNS) $this->domainDNS = new DomainDNS($this->ResellingTech);
         return $this->domainDNS;
+    }
+
+    /**
+     * @return Knowlagebase
+     */
+    public function knowlagebase(): Knowlagebase
+    {
+        if(!$this->knowlagebase) $this->knowlagebase = new Knowlagebase($this->ResellingTech);
+        return $this->knowlagebase;
     }
 
     /**

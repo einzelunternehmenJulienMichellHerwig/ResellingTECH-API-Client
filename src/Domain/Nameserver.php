@@ -20,13 +20,25 @@ class Nameserver
     }
 
     /**
-     * @param string $nameserver    ns1.reselling.network
+     * @param string $nameserver    ns1.reselling.tech | ns2.reselling.tech
+     * @return array|string
+     * @throws GuzzleException
+     */
+    public function show(string $nameserver)
+    {
+        return $this->ResellingTech->post('nameserver/show', [
+            'nameserver' => $nameserver
+        ]);
+    }
+
+    /**
+     * @param string $nameserver    ns1.reselling.tech | ns2.reselling.tech
      * @return array|string
      * @throws GuzzleException
      */
     public function create(string $nameserver)
     {
-        return $this->ResellingTech->post('domain/nameserver/create', [
+        return $this->ResellingTech->post('nameserver/create', [
             'nameserver' => $nameserver
         ]);
     }

@@ -22,7 +22,7 @@ class DomainDNS
      */
     public function get(string $domainName)
     {
-        return $this->ResellingTech->post('domain/dns/get', [
+        return $this->ResellingTech->post('dns/show', [
             'domainName' => $domainName
         ]);
     }
@@ -35,7 +35,7 @@ class DomainDNS
      */
     public function update(string $domainName, array $records)
     {
-        return $this->ResellingTech->post('domain/dns/update', [
+        return $this->ResellingTech->post('dns/update', [
             'domainName' => $domainName,
             'records' => $records
         ]);

@@ -26,15 +26,15 @@ class Credentials
         switch ($sandbox) {
             case false:
                 $this->sandbox = false;
-                $this->url = 'https://api.reseller-services.de/v1/';
+                $this->url = 'https://reselling.tech/api/v1/';
                 break;
             case true:
                 $this->sandbox = true;
-                $this->url = 'https://api.reseller-services.de/sandbox/v1/';
+                $this->url = 'https://reselling.tech/sandbox/v1/';
                 break;
             default:
                 $this->sandbox = false;
-                $this->url = 'https://api.reseller-services.de/v1/';
+                $this->url = 'https://reselling.tech/sandbox/v1/';
         }
     }
 
