@@ -2,6 +2,9 @@ Reselling.tech PHP API Client
 =======================
 
 [![PHP Composer](https://github.com/integromediaug/ResellingTECH-API-Client/actions/workflows/php.yml/badge.svg?branch=main)](https://github.com/ServerBlazeDE/ResellingTECH-API-Client/actions/workflows/php.yml)
+[![Latest Version](https://img.shields.io/packagist/v/integromediaug/resellingtech-api-client?label=version)](https://packagist.org/packages/integromediaug/resellingtech-api-client/)
+[![Packagist Downloads](https://img.shields.io/packagist/dm/integromediaug/resellingtech-api-client.svg?label=packagist%20downloads)](https://packagist.org/packages/integromediaug/resellingtech-api-client)
+
 
 This **PHP 7.0+** library allows you to communicate with the Reselling.tech API.
 
