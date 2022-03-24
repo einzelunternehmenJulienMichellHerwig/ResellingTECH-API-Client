@@ -3,7 +3,7 @@ Reselling.tech PHP API Client
 
 [![PHP Composer](https://github.com/integromediaug/ResellingTECH-API-Client/actions/workflows/php.yml/badge.svg?branch=main)](https://github.com/ServerBlazeDE/ResellingTECH-API-Client/actions/workflows/php.yml)
 
-This **PHP 7.2+** library allows you to communicate with the Reselling.tech API.
+This **PHP 7.0+** library allows you to communicate with the Reselling.tech API.
 
 ## Getting Started
 
@@ -46,3 +46,12 @@ $client = new ResellingTech('API-Token');
 var_dump($client->domain()->getPrice('de'));
 ?>
 ```
+
+
+### Disclaimer
+
+Der API Client wurde auf base von [Bastian Leicht´s](https://github.com/bastianleicht) API Clients gebaut.
+
+Der Client darf nicht ohne Erlaubnis für eigene Zwecke umgeschrieben und / oder veröffentlicht werden.
+
+Die Rechte am Client liegen bei [Bastian Leicht](https://github.com/bastianleicht) & [Julien Michell Herwig](https://github.com/CookieMC337)
