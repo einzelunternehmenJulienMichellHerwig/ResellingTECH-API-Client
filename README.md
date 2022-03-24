@@ -15,7 +15,7 @@ $ composer require integromediaug/resellingtech-api-client
 ```
  
 Or add this to your `composer.json` file:
-```json
+```json 
 {
     "require": {
         "integromediaug/resellingtech-api-client": "^1.0"
