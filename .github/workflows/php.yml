@@ -34,7 +34,6 @@ jobs:
         echo "Creating ZIP File"
         zip -r ResellingTechClient.zip src/ composer.json README.md
 
-
     - name: Send NEW Versions Embed
       uses: SebastiaanZ/github-status-embed-for-discord@main
       with:
