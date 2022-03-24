@@ -46,12 +46,12 @@ jobs:
         actor: ${{ github.actor }}
         sha: ${{ github.sha }}
 
-      #- name: send new Versions File
-      #  uses: appleboy/discord-action@master
-      #  with:
-      #    webhook_id: ${{ secrets.WEBHOOK_ID }} # Has to be provided as a string
-      #    webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-      #    file: "./ResellingTechClient.zip"
+      - name: send new Versions File
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.WEBHOOK_ID }} # Has to be provided as a string
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+          file: "./ResellingTechClient.zip"
 
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
