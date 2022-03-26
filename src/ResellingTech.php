@@ -10,7 +10,7 @@ use ResellingTech\Domain\Domain;
 use ResellingTech\Exception\ParameterException;
 use ResellingTech\License\Plesk;
 use ResellingTech\DedicatedServer\Dedicated;
-use ResellingTech\VirtualServer\kvm;
+use ResellingTech\VirtualServer\rootserver;
 
 class ResellingTech
 {
@@ -175,15 +175,6 @@ class ResellingTech
     private $accountingHandler;
 
     /**
-     * @return Plesk
-     */
-    public function plesk(): Plesk
-    {
-        if(!$this->pleskHandler) $this->pleskHandler = new Plesk($this);
-        return $this->pleskHandler;
-    }
-
-    /**
      * @return Domain
      */
     public function domain(): Domain
@@ -192,21 +183,13 @@ class ResellingTech
         return $this->domainHandler;
     }
 
-    /**
-     * @return Dedicated
-     */
-    public function dedicatedServer(): Dedicated
-    {
-        if(!$this->dedicatedServerHandler) $this->dedicatedServerHandler = new Dedicated($this);
-        return $this->dedicatedServerHandler;
-    }
 
     /**
-     * @return KVM
+     * @return RootServer
      */
-    public function virtualServer(): KVM
+    public function virtualServer(): RootServer
     {
-        if(!$this->virtualServerHandler) $this->virtualServerHandler = new KVM($this);
+        if(!$this->virtualServerHandler) $this->virtualServerHandler = new RootServer($this);
         return $this->virtualServerHandler;
     }
 
