@@ -62,13 +62,19 @@ class rootserver
 
     /**
      * @param string $server_id
+     * @param string $startdate
+     * @param string $enddate
+     * @param string $groupBy
      * @return array|string
      * @throws GuzzleException
      */
-    public function getTraffic(string $server_id)
+    public function getTraffic(string $server_id, string $startdate, string $enddate, string $groupBy = null)
     {
         return $this->ResellingTech->post('rootserver/traffic', [
-            'vmid' => $server_id
+            'vmid' => $server_id,
+            'startDate' => $startdate,
+            'endDate' => $enddate,
+            'groupBy' => $groupBy
         ]);
     }
 
@@ -178,7 +184,7 @@ class rootserver
             'backups' => $backups,
             'template' => $os_template,
             'hostname' => $hostname,
-            'rootpasswort' => $rootpasswort
+            'passwort' => $rootpasswort
         ]);
     }
 

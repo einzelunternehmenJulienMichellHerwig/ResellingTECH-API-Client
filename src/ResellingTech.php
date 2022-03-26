@@ -43,6 +43,12 @@ class ResellingTech
     public function setHttpClient(Client $httpClient = null)
     {
         $this->httpClient = $httpClient ?: new Client([
+            'http_errors' => false,
+            'headers'     => [
+                'Accept'       => 'application/json',
+                'Content-Type' => 'application/json',
+                'User-Agent' => 'ResellingTechClient/1.0',
+            ],
             'allow_redirects' => false,
             'follow_redirects' => false,
             'timeout' => 120,
@@ -108,8 +114,6 @@ class ResellingTech
             throw new ParameterException();
         }
 
-        $params['Authorization'] = 'Bearer ' . $this->apiToken;
-
         switch ($method) {
             case 'GET':
                 return $this->getHttpClient()->get($url, [
@@ -120,9 +124,7 @@ class ResellingTech
                 return $this->getHttpClient()->post($url, [
                     'verify' => false,
                     'headers'  => [
-                        'Content-Type' => 'application/json',
-                        'Accept' => 'application/json',
-                        'Authorization' => 'Bearer ' . $this->apiToken,
+                        'X-Auth-Token' => $this->apiToken,
                     ],
                     'form_params'   => $params,
                 ]);

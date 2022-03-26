@@ -34,7 +34,7 @@ class Credentials
                 break;
             default:
                 $this->sandbox = false;
-                $this->url = 'https://reselling.tech/sandbox/v1/';
+                $this->url = 'https://reselling.tech/api/v1/';
         }
     }
 
