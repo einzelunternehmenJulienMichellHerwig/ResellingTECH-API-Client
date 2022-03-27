@@ -70,12 +70,12 @@ class rootserver
      */
     public function getTraffic(string $server_id, string $startdate, string $enddate, string $groupBy = null)
     {
-        return $this->ResellingTech->post('rootserver/traffic', [
+        return $this->ResellingTech->post('rootserver/traffic', array(
             'vmid' => $server_id,
             'startDate' => $startdate,
             'endDate' => $enddate,
             'groupBy' => $groupBy
-        ]);
+        ));
     }
 
     /**
@@ -122,11 +122,11 @@ class rootserver
      * @param string $server_id
      * @param string $timeframe     Zeitraum (hour, day, week, month, year)
      * @param string $cf            Werte-Typ (AVERAGE, MAX)
-     * @param string $ds            Array Werte (maxcpu, cpu, maxmem, mem, maxdisk, disk, netin, netout, diskread, diskwrite)
+     * @param array $ds            Array Werte (maxcpu, cpu, maxmem, mem, maxdisk, disk, netin, netout, diskread, diskwrite)
      * @return array|string
      * @throws GuzzleException
      */
-    public function getGraphImage(string $server_id, string $timeframe = null, string $cf = null, string $ds = null)
+    public function getGraphImage(string $server_id, string $timeframe = null, string $cf = null, array $ds = null)
     {
         return $this->ResellingTech->post('rootserver/graphimage', [
             'vmid' => $server_id,
@@ -276,8 +276,9 @@ class rootserver
     /**
      * @param string $server_id
      * @param string $server_os
+     * @param string|null $hostname
+     * @param string|null $rootpassword
      * @return array|string
-     * @throws GuzzleException
      */
     public function reinstall(string $server_id, string $server_os, string $hostname = null, string $rootpassword = null)
     {
