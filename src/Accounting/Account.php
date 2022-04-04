@@ -7,7 +7,6 @@ use ResellingTech\ResellingTech;
 class Account
 {
     private $ResellingTech;
-    private $invoiceHandler;
 
     public function __construct(ResellingTech $ResellingTech)
     {

@@ -170,8 +170,6 @@ class ResellingTech
     }
 
 
-    private $pleskHandler;
-    private $dedicatedServerHandler;
     private $domainHandler;
     private $virtualServerHandler;
     private $accountingHandler;
@@ -189,7 +187,7 @@ class ResellingTech
     /**
      * @return RootServer
      */
-    public function virtualServer(): RootServer
+    public function rootServer(): RootServer
     {
         if(!$this->virtualServerHandler) $this->virtualServerHandler = new RootServer($this);
         return $this->virtualServerHandler;
