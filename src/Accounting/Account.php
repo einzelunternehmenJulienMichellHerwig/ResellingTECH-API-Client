@@ -16,12 +16,22 @@ class Account
 
 
     /**
-     * @return CreditLimit
+     * @return array|string
+     * @throws GuzzleException
      */
-    public function creditlimit(): CreditLimit
+    public function getCreditLimit()
     {
-        if(!$this->invoiceHandler) $this->invoiceHandler = new CreditLimit($this->ResellingTech);
-        return $this->invoiceHandler;
+        return $this->ResellingTech->post('accounting/creditLimit');
     }
+
+    /**
+     * @return array|string
+     * @throws GuzzleException
+     */
+    public function get()
+    {
+        return $this->ResellingTech->post('accounting/get');
+    }
+
 
 }

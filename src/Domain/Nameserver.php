@@ -44,13 +44,25 @@ class Nameserver
     }
 
     /**
-     * @param string $nameserver    ns1.reselling.network
+     * @param string $nameserver    ns1.reselling.tech
      * @return array|string
      * @throws GuzzleException
      */
     public function delete(string $nameserver)
     {
-        return $this->ResellingTech->post('domain/nameserver/delete', [
+        return $this->ResellingTech->post('nameserver/delete', [
+            'nameserver' => $nameserver
+        ]);
+    }
+
+    /**
+     * @param string $nameserver    ns1.reselling.tech
+     * @return array|string
+     * @throws GuzzleException
+     */
+    public function refresh(string $nameserver)
+    {
+        return $this->ResellingTech->post('nameserver/refresh', [
             'nameserver' => $nameserver
         ]);
     }

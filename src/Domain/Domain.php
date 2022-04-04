@@ -57,11 +57,10 @@ class Domain
     }
 
     /**
-     * @param bool $company
      * @return array|string
      * @throws GuzzleException
      */
-    public function getPricelist(bool $company = false)
+    public function getPricelist()
     {
         if($this->ResellingTech->isSandbox() === true) {
             throw new AssertNotImplemented();
@@ -71,11 +70,10 @@ class Domain
 
     /**
      * @param string $tld   de | eu | com | net etc...
-     * @param bool $company
      * @return array|string
      * @throws GuzzleException
      */
-    public function getPrice(string $tld, bool $company = false)
+    public function getPrice(string $tld)
     {
         return $this->ResellingTech->post('domain/getPrice', [
             'tld' => $tld
@@ -99,9 +97,9 @@ class Domain
      * @return array|string
      * @throws GuzzleException
      */
-    public function getDomain(string $domainName)
+    public function slowCheck(string $domainName)
     {
-        return $this->ResellingTech->post('domain/getDomain', [
+        return $this->ResellingTech->post('domain/slowCheck', [
             'domainName' => $domainName
         ]);
     }
@@ -111,11 +109,21 @@ class Domain
      * @return array|string
      * @throws GuzzleException
      */
-    public function getAuthcode(string $domainName)
+    public function get(string $domainName)
     {
-        return $this->ResellingTech->post('domain/getAuthcode', [
+        return $this->ResellingTech->post('domain/get', [
             'domainName' => $domainName
         ]);
+    }
+
+    /**
+     * @param string $domainName    domain.de
+     * @return array|string
+     * @throws GuzzleException
+     */
+    public function getAll()
+    {
+        return $this->ResellingTech->post('domain/getAll');
     }
 
     /**
@@ -124,17 +132,17 @@ class Domain
      * @param string $adminContact          TEST5
      * @param string $technicianContact     TEST5
      * @param string $zoneContact           TEST5
-     * @param string $ns1                   ns1.reselling.network
-     * @param string $ns2                   ns2.reselling.network
-     * @param string $ns3                   ns3.reselling.network
-     * @param string $ns4                   ns4.reselling.network
-     * @param string $ns5                   ns5.reselling.network
-     * @param int $years                    1
+     * @param string $ns1                   ns1.reselling.tech
+     * @param string $ns2                   ns2.reselling.tech
+     * @param string $ns3                   ns3.reselling.tech
+     * @param string $ns4                   ns4.reselling.tech
+     * @param string $ns5                   ns5.reselling.tech
      * @return array|string
      * @throws GuzzleException
      */
+
     public function register(string $domainName, string $ownerContact, string $adminContact, string $technicianContact,
-                             string $zoneContact, string $ns1, string $ns2, string $ns3, string $ns4, string $ns5, int $years)
+                             string $zoneContact, string $ns1, string $ns2, string $ns3, string $ns4, string $ns5)
     {
         return $this->ResellingTech->post('domain/register', [
             'domainName' => $domainName,
@@ -147,7 +155,6 @@ class Domain
             'ns3' => $ns3,
             'ns4' => $ns4,
             'ns5' => $ns5,
-            'years' => $years
         ]);
     }
 
@@ -157,18 +164,17 @@ class Domain
      * @param string $adminContact          TEST5
      * @param string $technicianContact     TEST5
      * @param string $zoneContact           TEST5
-     * @param string $ns1                   ns1.reselling.network
-     * @param string $ns2                   ns2.reselling.network
-     * @param string $ns3                   ns3.reselling.network
-     * @param string $ns4                   ns4.reselling.network
-     * @param string $ns5                   ns5.reselling.network
-     * @param int $years                    1
+     * @param string $ns1                   ns1.reselling.tech
+     * @param string $ns2                   ns2.reselling.tech
+     * @param string $ns3                   ns3.reselling.tech
+     * @param string $ns4                   ns4.reselling.tech
+     * @param string $ns5                   ns5.reselling.tech
      * @param string $authCode              test1234
      * @return array|string
      * @throws GuzzleException
      */
     public function transfer(string $domainName, string $ownerContact, string $adminContact, string $technicianContact, string $zoneContact,
-                             string $ns1, string $ns2, string $ns3, string $ns4, string $ns5, int $years, string $authCode)
+                             string $ns1, string $ns2, string $ns3, string $ns4, string $ns5, string $authCode)
     {
         if($this->ResellingTech->isSandbox() === true) {
             throw new AssertNotImplemented();
@@ -184,8 +190,7 @@ class Domain
             'ns3' => $ns3,
             'ns4' => $ns4,
             'ns5' => $ns5,
-            'years' => $years,
-            'authCode' => $authCode
+            'authcode' => $authCode
         ]);
     }
 
@@ -195,11 +200,11 @@ class Domain
      * @param string $adminContact          TEST5
      * @param string $technicianContact     TEST5
      * @param string $zoneContact           TEST5
-     * @param string $ns1                   ns1.reselling.network
-     * @param string $ns2                   ns2.reselling.network
-     * @param string $ns3                   ns3.reselling.network
-     * @param string $ns4                   ns4.reselling.network
-     * @param string $ns5                   ns5.reselling.network
+     * @param string $ns1                   ns1.reselling.tech
+     * @param string $ns2                   ns2.reselling.tech
+     * @param string $ns3                   ns3.reselling.tech
+     * @param string $ns4                   ns4.reselling.tech
+     * @param string $ns5                   ns5.reselling.tech
      * @return array|string
      * @throws GuzzleException
      */
@@ -217,18 +222,6 @@ class Domain
             'ns3' => $ns3,
             'ns4' => $ns4,
             'ns5' => $ns5
-        ]);
-    }
-
-    /**
-     * @param string $domainName test.de
-     * @return array|string
-     * @throws GuzzleException
-     */
-    public function restore(string $domainName)
-    {
-        return $this->ResellingTech->post('domain/restore', [
-            'domainName' => $domainName,
         ]);
     }
 

@@ -21,6 +21,9 @@ class rootserver
      */
     public function getTemplates()
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/templates');
     }
 
@@ -31,6 +34,9 @@ class rootserver
      */
     public function getConfig(string $server_id)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/show', [
             'vmid' => $server_id
         ]);
@@ -43,6 +49,9 @@ class rootserver
      */
     public function getStatus(string $server_id)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/status', [
             'vmid' => $server_id
         ]);
@@ -55,6 +64,9 @@ class rootserver
      */
     public function noVNC(string $server_id)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/vnc', [
             'vmid' => $server_id
         ]);
@@ -70,6 +82,9 @@ class rootserver
      */
     public function getTraffic(string $server_id, string $startdate, string $enddate, string $groupBy = null)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/traffic', array(
             'vmid' => $server_id,
             'startDate' => $startdate,
@@ -85,6 +100,9 @@ class rootserver
      */
     public function getAddresses(string $server_id)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/addresses', [
             'vmid' => $server_id
         ]);
@@ -97,6 +115,9 @@ class rootserver
      */
     public function getDDoSAttacks(string $server_id)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/ddosAttacks', [
             'vmid' => $server_id
         ]);
@@ -111,6 +132,9 @@ class rootserver
      */
     public function getGraph(string $server_id, string $timeframe = null, string $cf = null)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/graph', [
             'vmid' => $server_id,
             'timeframe' => $timeframe,
@@ -128,6 +152,9 @@ class rootserver
      */
     public function getGraphImage(string $server_id, string $timeframe = null, string $cf = null, array $ds = null)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/graphimage', [
             'vmid' => $server_id,
             'timeframe' => $timeframe,
@@ -143,6 +170,9 @@ class rootserver
      */
     public function getUpdates(string $server_id)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/getUpdates', [
             'vmid' => $server_id
         ]);
@@ -155,6 +185,9 @@ class rootserver
      */
     public function installUpdates(string $server_id)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/installUpdates', [
             'vmid' => $server_id
         ]);
@@ -175,6 +208,9 @@ class rootserver
      */
     public function create(string $cores, string $memory, string $disk, string $ip_addresses, string $ip6_addresses, string $backups, string $os_template, string $hostname = null, string $rootpasswort = null)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/create', [
             'cores' => $cores,
             'memory' => $memory,
@@ -195,6 +231,9 @@ class rootserver
      */
     public function delete(string $server_id)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/delete', [
             'vmid' => $server_id
         ]);
@@ -213,6 +252,9 @@ class rootserver
      */
     public function upgrade(string $vmid, string $cores, string $memory, string $disk, string $ip_addresses, string $ip6_addresses, string $backups)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/upgrade', [
             'vmid' => $vmid,
             'cores' => $cores,
@@ -232,6 +274,9 @@ class rootserver
      */
     public function start(string $server_id)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/start', [
             'vmid' => $server_id
         ]);
@@ -244,6 +289,9 @@ class rootserver
      */
     public function shutdown(string $server_id)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/shutdown', [
             'vmid' => $server_id
         ]);
@@ -256,6 +304,9 @@ class rootserver
      */
     public function stop(string $server_id)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/stop', [
             'vmid' => $server_id
         ]);
@@ -268,6 +319,9 @@ class rootserver
      */
     public function reboot(string $server_id)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/reboot', [
             'vmid' => $server_id
         ]);
@@ -282,6 +336,9 @@ class rootserver
      */
     public function reinstall(string $server_id, string $server_os, string $hostname = null, string $rootpassword = null)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/reinstall', [
             'vmid' => $server_id,
             'template' => $server_os,
@@ -298,6 +355,9 @@ class rootserver
      */
     public function resetPassword(string $server_id, string $rootpassword = null)
     {
+        if($this->ResellingTech->isSandbox() === true) {
+            throw new AssertNotImplemented();
+        }
         return $this->ResellingTech->post('rootserver/passwordreset', [
             'vmid' => $server_id,
             'rootpassword' => $rootpassword

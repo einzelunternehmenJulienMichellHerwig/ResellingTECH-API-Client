@@ -20,7 +20,7 @@ class DomainHandle
      * @return array|string
      * @throws GuzzleException
      */
-    public function get(string $handle)
+    public function show(string $handle)
     {
         return $this->ResellingTech->post('handle/show', [
             'handle' => $handle
@@ -115,6 +115,15 @@ class DomainHandle
         return $this->ResellingTech->post('handle/delete', [
             'handle' => $handle
         ]);
+    }
+
+    /**
+     * @return array|string
+     * @throws GuzzleException
+     */
+    public function countries()
+    {
+        return $this->ResellingTech->post('handle/countries');
     }
 
 }
