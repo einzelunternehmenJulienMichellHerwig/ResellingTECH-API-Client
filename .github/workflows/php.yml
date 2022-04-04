@@ -45,7 +45,7 @@ jobs:
         actor: ${{ github.actor }}
         sha: ${{ github.sha }}
 
-    - name: send new Versions File
+    - name: send new Versions File to dc
       uses: appleboy/discord-action@master
       with:
         webhook_id: ${{ secrets.WEBHOOK_ID }} # Has to be provided as a string
